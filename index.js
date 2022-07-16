@@ -17,7 +17,8 @@ import adminRoutes from './routes/adminRoutes.js';
 dotenv.config();
 const app = express();
 const port = process.env.port || 5000;
-const database = process.env.MONGO_URI || 'mongodb://localhost:27017/kmascoffee'
+const database = process.env.MONGO_URI || "mongodb+srv://admin:adam123@cluster0.qbwht0w.mongodb.net/kmascoffee?retryWrites=true&w=majority"
+// const database = process.env.MONGO_URI || 'mongodb://localhost:27017/kmascoffee'
 mongoose.connect(database, {
     useNewUrlParser: true,
     useUnifiedTopology: true
