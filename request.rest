@@ -1,0 +1,104 @@
+
+
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "namaproduk" : "Sirup Coklat",
+    "hargaproduk" : 150000,
+    "tipeproduk" : "noncoffee",
+    "deskripsiproduk" : "produk dari italia"
+}
+
+###
+DELETE http://localhost:5000/products/62bc36f1bb06de275c133156
+
+
+###
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "namalengkap" : "testing",
+    "email" : "babayo1234@gmail.com",
+    "password" : "adam123",
+    "alamat" : "Depok, Jawa Barat",
+    "nomorhp" : "08123456789",
+    "refresh_token" : ""
+}
+
+###
+POST http://localhost:5000/adminregist
+Content-Type: application/json
+
+{
+    "namaadmin" : "testing",
+    "email" : "babayo1234@gmail.com",
+    "password" : "adam123",
+    "alamat" : "Depok, Jawa Barat",
+    "nomorhp" : "08123456789",
+    "refresh_token" : ""
+}
+
+###
+GET http://localhost:5000/products/62bc369ebb06de275c133154
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTcwOTY2MzgsImV4cCI6MTY1NzA5NjY1M30.MOBRuKUMKetZaaVlBYHfRuTD31LqWU6MUu5JkU6K2ZU
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "sultan123@gmail.com",
+    "password" : "adam123"
+}
+
+###
+GET http://localhost:5000/tokenadmin
+
+###
+DELETE http://localhost:5000/logout
+
+
+###
+GET http://localhost:5000/login/62c552571501d945022a5fa7
+
+###
+POST http://localhost:5000/transaksi/
+Content-Type: application/json 
+
+{
+    "namauser" : "adam sake arfansyah",
+    "alamatuser" : "purigading",
+    "nomorhpuser" : "08123231",
+    "namaproduk" : "sirup monin",
+    "hargaproduk" : 120000,
+    "tipeproduk" : "coffee",
+    "totalharga" : 240000
+}
+
+###
+PATCH http://localhost:5000/users/62c552571501d945022a5fa7
+
+
+
+###
+POST http://localhost:5000/loginadmin
+Content-Type: application/json
+
+{
+    "email" : "adamsake9@gmail.com",
+    "password" : "adam123"
+}
+
+###
+GET http://localhost:5000/tokenadmin
+
+###
+GET http://localhost:5000/transaksi/62cf2314da1eb9928d5d815d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmNlNTdhZmFhYjkwYjI5Mjk4OTVjMTgiLCJuYW1hIjoiQWRhbSBTYWtlIEFyZmFuc3lhaCIsImVtYWlsIjoiYWRhbXNha2U4QGdtYWlsLmNvbSIsImlhdCI6MTY1Nzc4ODIzNCwiZXhwIjoxNjU3Nzg4MjQ5fQ.ANiCH2opkagPrgCYKLKHPbMbvtF57SiuNmnIzB7HARM
+
+
+
+
