@@ -49,7 +49,6 @@ db.once('open', () => console.log("database connected.."));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 app.use(cookieParser())
 app.use(cors({ credentials: true, origin: ["https://penelitianilmiah-fe.herokuapp.com/", "http://localhost:3000"]}));
 app.use(express.json());
