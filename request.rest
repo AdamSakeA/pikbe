@@ -42,20 +42,20 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/products/62bc369ebb06de275c133154
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTcwOTY2MzgsImV4cCI6MTY1NzA5NjY1M30.MOBRuKUMKetZaaVlBYHfRuTD31LqWU6MUu5JkU6K2ZU
+GET http://localhost:5000/products/62d2855458550db62075be38
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmQyN2MwYWNhNmFjYWM0ODY3MWY4ZDgiLCJuYW1hIjoiQWRhbSBTYWtlIEFyZmFuc3lhaCIsImVtYWlsIjoiYWRhbXNha2UxMEBnbWFpbC5jb20iLCJpYXQiOjE2NTgwNTA1MDEsImV4cCI6MTY1ODA1MDUxNn0.tCbQxIwu0KRFruOCU5r8wv2cT-WBj0DJqNsDpt7dEbA
 
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email" : "sultan123@gmail.com",
+    "email" : "adamsake10@gmail.com",
     "password" : "adam123"
 }
 
 ###
-GET http://localhost:5000/tokenadmin
+GET http://localhost:5000/token
 
 ###
 DELETE http://localhost:5000/logout
@@ -93,7 +93,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/tokenadmin
+GET http://localhost:5000/token
 
 ###
 GET http://localhost:5000/transaksi/62cf2314da1eb9928d5d815d
