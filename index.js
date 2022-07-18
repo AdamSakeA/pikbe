@@ -22,7 +22,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 
 const userRoutes = require('./routes/userRoutes.js');
-const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./routes/productRoutes.js');
 const transaksiRoutes = require('./routes/transaksiRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
 const registerRoutes = require('./routes/registerRoutes.js');
