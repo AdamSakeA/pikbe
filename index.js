@@ -73,7 +73,7 @@ console.log('productroutes: ', productRoutes);
 app.use('/product', productRoutes);
 // app.use(transaksiRoutes);
 // app.use(registerRoutes);
-// app.use(loginRoutes);
+app.use('/login', loginRoutes);
 // app.use(buyingRoutes);
 // app.use(adminRoutes);
 

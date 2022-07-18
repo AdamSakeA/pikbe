@@ -14,7 +14,7 @@ const getUserById = require('../controllers/userController.js')
 const router = express.Router();
 
 router.post('/login', userLogin);
-router.get('/login/:id', getUserById);
+router.get('/:id', getUserById);
 router.get('/token', refreshToken); 
 router.delete('/logout', userLogout);   
 
