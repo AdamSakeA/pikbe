@@ -25,7 +25,7 @@ const router = express.Router();
 // const upload = multer({ storage: storage })
 
 router.get('/', product.getProduk);
-// router.get('/products/:id', verifyToken, getProdukById);
+router.get('/:id', product.getProdukById);
 // router.get('/product/:id', getProdukByName);
 // router.post('/products', upload.single('img'), saveProduk);
 // router.patch('/products/:id', verifyToken, upload.single('img'), updateProduk);
