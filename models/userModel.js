@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+// git 
 const mongoose = require('mongoose')
 
 const User = mongoose.Schema({
