@@ -2,7 +2,7 @@
 // import bcrypt from 'bcrypt'
 
 const User = require('../models/userModel.js');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 const getUsers = async (req,res) => {
     try {

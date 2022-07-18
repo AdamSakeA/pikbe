@@ -3,7 +3,7 @@
 // import path from 'path'
 // import { getProduk, getProdukByName, getProdukById, saveProduk, updateProduk, deleteProduk } from '../controllers/produkController.js';
 // import { verifyToken } from "../middleware/verifyToken.js";
-const express = require('express')
+const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { getProduk, getProdukByName, getProdukById, saveProduk, updateProduk, deleteProduk } = require('../controllers/produkController.js')

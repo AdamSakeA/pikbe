@@ -7,7 +7,7 @@ const User = require('../models/userModel.js');
 const jwt = require('jsonwebtoken');
 
 
-const refreshToken = async(req, res) => {
+exports.refreshToken = async(req, res) => {
     try {
         const refreshToken = req.cookies.refreshToken;
         const byId = req.params.id;
@@ -61,5 +61,5 @@ const refreshTokenAdmin = async(req,res) => {
 }
 
 // export { refreshToken, refreshTokenAdmin };
-exports.refreshToken = refreshToken
-exports.refreshTokenAdmin = refreshTokenAdmin
+// exports.refreshToken = refreshToken
+// exports.refreshTokenAdmin = refreshTokenAdmin

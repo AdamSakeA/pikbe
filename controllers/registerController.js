@@ -4,7 +4,7 @@
 const User = require('../models/userModel.js');
 const bcrypt = require('bcrypt');
 
-const registerUser = async (req,res) => {
+exports.registerUser = async (req,res) => {
     const { namalengkap, email, password, alamat, nomorhp } = req.body;
 
     const findUser = await User.findOne({
@@ -49,4 +49,4 @@ const registerUser = async (req,res) => {
     })
 }
 
-export {registerUser};
+// export {registerUser};

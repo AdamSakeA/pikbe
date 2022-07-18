@@ -128,7 +128,7 @@ const registerAdmin = async (req,res) => {
 }
 
 
-export { adminLogin, adminLogout, getAdmins, deleteAdmin, registerAdmin }
+// export { adminLogin, adminLogout, getAdmins, deleteAdmin, registerAdmin }
 exports.adminLogin = adminLogin
 exports.adminLogout = adminLogout
 exports.getAdmins = getAdmins

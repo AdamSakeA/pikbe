@@ -39,7 +39,7 @@ exports.saveProduk = async (req,res) => {
             tipeproduk: req.body.tipeproduk,
             deskripsiproduk: req.body.deskripsiproduk,
             img: {
-                data: fs.readFileSync(`./assets/${req.file.filename}`),
+                data: fs.readFileSync('./assets/' + req.file.filename),
                 contentType: "image/png"
             }
         });

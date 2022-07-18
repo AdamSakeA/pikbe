@@ -35,7 +35,7 @@ const saveTransaksi = async (req,res) => {
             tipeproduk: req.body.tipeproduk,
             totalharga: req.body.totalharga,
             img: {
-                data: fs.readFileSync(`./tmp/${req.file.filename}`),
+                data: fs.readFileSync('./tmp/' + req.file.filename),
                 contentType: "image/png"
             }
         });
