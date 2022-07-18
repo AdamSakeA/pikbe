@@ -1,5 +1,8 @@
-import User from "../models/userModel.js"
-import bcrypt from 'bcrypt'
+// import User from "../models/userModel.js"
+// import bcrypt from 'bcrypt'
+
+const User = require('../models/userModel.js');
+const bcrypt = require('bcrypt');
 
 const updateUser = async (req,res) => {
 
@@ -85,3 +88,6 @@ const userLogin = async (req,res) => {
     });
     res.json({ accessToken, userId, name })
 }
+
+exports.userLogin = userLogin
+exports.updateUser = updateUser

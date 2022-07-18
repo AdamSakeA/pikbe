@@ -1,9 +1,13 @@
-import express from 'express';
-import multer from 'multer';
-import path from 'path'
-import { getProduk, getProdukByName, getProdukById, saveProduk, updateProduk, deleteProduk } from '../controllers/produkController.js';
-import { verifyToken } from "../middleware/verifyToken.js";
-
+// import express from 'express';
+// import multer from 'multer';
+// import path from 'path'
+// import { getProduk, getProdukByName, getProdukById, saveProduk, updateProduk, deleteProduk } from '../controllers/produkController.js';
+// import { verifyToken } from "../middleware/verifyToken.js";
+const express = require('express')
+const multer = require('multer');
+const path = require('path');
+const { getProduk, getProdukByName, getProdukById, saveProduk, updateProduk, deleteProduk } = require('../controllers/produkController.js')
+const verifyToken = require('../middleware/verifyToken.js')
 
 const router = express.Router();
 router.use(express.static(path.join("assets")))
@@ -27,4 +31,4 @@ router.post('/products', upload.single('img'), saveProduk);
 router.patch('/products/:id', verifyToken, upload.single('img'), updateProduk);
 router.delete('/products/:id', verifyToken, deleteProduk);
 
-export default router;
+exports.router = router

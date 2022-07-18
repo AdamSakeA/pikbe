@@ -1,6 +1,11 @@
-import User from '../models/userModel.js';
-import AdminUser from '../models/adminModel.js';
-import jwt from 'jsonwebtoken';
+// import User from '../models/userModel.js';
+// import AdminUser from '../models/adminModel.js';
+// import jwt from 'jsonwebtoken';
+
+const AdminUser = require('../models/adminModel.js');
+const User = require('../models/userModel.js');
+const jwt = require('jsonwebtoken');
+
 
 const refreshToken = async(req, res) => {
     try {

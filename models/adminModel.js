@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const AdminUser = mongoose.Schema({
     namaadmin: {
@@ -26,4 +27,4 @@ const AdminUser = mongoose.Schema({
     }    
 });
 
-export default mongoose.model('data-admin', AdminUser);
+module.exports = mongoose.model('data-admin', AdminUser);

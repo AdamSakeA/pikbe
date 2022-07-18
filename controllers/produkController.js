@@ -1,7 +1,8 @@
-import Produk from '../models/productModel.js';
-import fs from 'fs'
-import path from 'path'
-import multer from 'multer';
+// import Produk from '../models/productModel.js';
+// import fs from 'fs'
+
+const Produk = require('../models/productModel.js');
+const fs = require('fs')
 
 const getProduk = async (req,res) => {
     try {
@@ -79,4 +80,10 @@ const deleteProduk = async (req,res) => {
     }
 }
 
-export {getProdukByName, getProduk, getProdukById, saveProduk, updateProduk, deleteProduk };
+// export {getProdukByName, getProduk, getProdukById, saveProduk, updateProduk, deleteProduk };
+exports.getProdukByName = getProdukByName
+exports.getProduk = getProduk
+exports.getProdukById = getProdukById
+exports.saveProduk = saveProduk
+exports.updateProduk = updateProduk
+exports.deleteProduk = deleteProduk

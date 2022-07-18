@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+const mongoose = require('mongoose')
+
 const User = mongoose.Schema({
     namalengkap: {
         type: String,
@@ -26,4 +28,4 @@ const User = mongoose.Schema({
     }    
 });
 
-export default mongoose.model('data-pengguna', User);
+exports.module = mongoose.model('data-pengguna', User);

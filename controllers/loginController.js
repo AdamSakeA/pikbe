@@ -1,6 +1,9 @@
-import User from '../models/userModel.js'
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt'
+// import User from '../models/userModel.js'
+// import jwt from 'jsonwebtoken';
+// import bcrypt from 'bcrypt'
+const User = require('../models/userModel.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const userLogin = async (req,res) => {
     const { email, password } = req.body;
@@ -52,4 +55,6 @@ const getUserLoginById = async (req, res) => {
     }
 }
 
-export { userLogin, getUserLoginById };
+// export { userLogin, getUserLoginById };
+exports.userLogin = userLogin;
+exports.getUserLoginById = getUserLoginById;

@@ -1,18 +1,34 @@
-import express  from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import bodyParser from 'body-parser';
-import multer from "multer";
+// import express  from "express";
+// import mongoose from "mongoose";
+// import cors from "cors";
+// import dotenv from "dotenv";
+// import cookieParser from "cookie-parser";
+// import bodyParser from 'body-parser';
+// import multer from "multer";
 
-import userRoutes from "./routes/userRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
-import transaksiRoutes from './routes/transaksiRoutes.js';
-import loginRoutes from './routes/loginRoutes.js';
-import registerRoutes from './routes/registerRoutes.js';
-import buyingRoutes from './routes/buyingRoutes.js'
-import adminRoutes from './routes/adminRoutes.js';
+// import userRoutes from "./routes/userRoutes.js";
+// import productRoutes from "./routes/productRoutes.js";
+// import transaksiRoutes from './routes/transaksiRoutes.js';
+// import loginRoutes from './routes/loginRoutes.js';
+// import registerRoutes from './routes/registerRoutes.js';
+// import buyingRoutes from './routes/buyingRoutes.js'
+// import adminRoutes from './routes/adminRoutes.js';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+
+const userRoutes = require('./routes/userRoutes.js');
+const productRoutes = require('./routes/productRoutes');
+const transaksiRoutes = require('./routes/transaksiRoutes.js');
+const loginRoutes = require('./routes/loginRoutes.js');
+const reqisterRoutes = require('./routes/registerRoutes.js');
+const buyingRoutes = require('./routes/buyingRoutes.js');
+const adminRoutes = require('./routes/adminRoutes.js');
+
 
 dotenv.config();
 const app = express();
@@ -25,7 +41,7 @@ mongoose.connect(database, {
 });
 
 mongoose.connection.on("connected", () => {
-    console.log(`${database} connected..`)
+    console.log(database + 'connected..')
 })
 // mongoose.connect('mongodb://localhost:27017/kmascoffee', {
 //     useNewUrlParser: true,
@@ -60,7 +76,7 @@ app.use(loginRoutes);
 app.use(buyingRoutes);
 app.use(adminRoutes);
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5000)
 
 // app.listen(5000, ()=> console.log(`Server running on port 5000..`));
-app.listen(process.env.PORT || 5000, ()=> console.log(`Server running on port ${port}..`));
+app.listen(process.env.PORT || 5000, ()=> console.log('Server running on port' + port + '...'));

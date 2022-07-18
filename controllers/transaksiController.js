@@ -1,5 +1,8 @@
-import Transaksi from '../models/transaksiModel.js';
-import fs from 'fs'
+// import Transaksi from '../models/transaksiModel.js';
+// import fs from 'fs'
+
+const Transaksi = require('../models/transaksiModel.js');
+const fs = require('fs')
 
 const getTransaksi = async (req, res) => {
     try {
@@ -64,4 +67,9 @@ const deleteTransaksi = async (req,res) => {
     }
 }
 
-export { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi };
+// export { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi };
+exports.getTransaksi = getTransaksi
+exports.getTransaksiById = getTransaksiById
+exports.saveTransaksi = saveTransaksi
+exports.updateTransaksi = updateTransaksi
+exports.deleteTransaksi = deleteTransaksi

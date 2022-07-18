@@ -1,5 +1,8 @@
-import User from "../models/userModel.js"
-import bcrypt from 'bcrypt'
+// import User from "../models/userModel.js"
+// import bcrypt from 'bcrypt'
+
+const User = require('../models/userModel.js');
+const bcrypt = require('bcrypt');
 
 const getUsers = async (req,res) => {
     try {
@@ -47,4 +50,9 @@ const deleteUser = async (req,res) => {
     }
 }
 
-export { getUsers, getUserById, saveUser, updateUser, deleteUser };
+// export { getUsers, getUserById, saveUser, updateUser, deleteUser };
+exports.getUsers = getUsers
+exports.getUserById = getUserById
+exports.saveUser = saveUser
+exports.updateUser = updateUser
+exports.deleteUser = deleteUser

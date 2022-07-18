@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const Produk = mongoose.Schema({
     namaproduk: {
@@ -33,4 +34,4 @@ const Produk = mongoose.Schema({
     // }
 });
 
-export default mongoose.model('data-produk', Produk);
+module.exports = mongoose.model('data-produk', Produk);

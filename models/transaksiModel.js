@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+const mongoose = require('mongoose')
+
 const Transaksi = mongoose.Schema({
     namauser: {
         type: String,
@@ -39,4 +41,4 @@ const Transaksi = mongoose.Schema({
     }
 });
 
-export default mongoose.model('data-transaksi', Transaksi);
+module.exports =  mongoose.model('data-transaksi', Transaksi);

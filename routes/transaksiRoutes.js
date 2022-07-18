@@ -1,8 +1,14 @@
-import express from 'express';
-import multer from 'multer';
-import path from 'path';
-import { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi } from '../controllers/transaksiController.js';
-import { verifyToken } from '../middleware/verifyToken.js';
+// import express from 'express';
+// import multer from 'multer';
+// import path from 'path';
+// import { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi } from '../controllers/transaksiController.js';
+// import { verifyToken } from '../middleware/verifyToken.js';
+
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi } = require('../controllers/transaksiController.js');
+const { verifyToken } = require('../middleware/verifyToken.js')
 
 const router = express.Router();
 router.use(express.static(path.join("assets")))

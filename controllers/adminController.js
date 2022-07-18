@@ -1,6 +1,11 @@
-import AdminUser from '../models/adminModel.js'
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt'
+// import AdminUser from '../models/adminModel.js'
+// import jwt from 'jsonwebtoken';
+// import bcrypt from 'bcrypt'
+
+const AdminUser = require('../models/adminModel.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
 
 const adminLogin = async (req,res) => {
     const { email, password } = req.body;
@@ -124,3 +129,8 @@ const registerAdmin = async (req,res) => {
 
 
 export { adminLogin, adminLogout, getAdmins, deleteAdmin, registerAdmin }
+exports.adminLogin = adminLogin
+exports.adminLogout = adminLogout
+exports.getAdmins = getAdmins
+exports.deleteAdmin = deleteAdmin
+exports.registerAdmin = registerAdmin

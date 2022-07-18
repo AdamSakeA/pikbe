@@ -1,4 +1,6 @@
-import Produk from '../models/productModel.js'
+// import Produk from '../models/productModel.js'
+
+const Produk = require('../models/productModel.js');
 
 const getBuyingById = async (req, res) => {
     try {
@@ -9,4 +11,5 @@ const getBuyingById = async (req, res) => {
     }
 }
 
-export {getBuyingById};
+// export {getBuyingById};
+exports.getBuyingById = getBuyingById
