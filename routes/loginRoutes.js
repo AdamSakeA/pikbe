@@ -8,7 +8,8 @@ const express = require('express');
 const { getUserLoginById, userLogin } = require('../controllers/loginController.js');
 const { refreshToken } = require('../controllers/refreshToken.js');
 const { userLogout } = require('../controllers/logoutController.js');
-const getUserById = require('../controllers/userController.js')
+const getUserById = require('../controllers/userController.js');
+const { module } = require('../models/userModel.js');
 
 
 const router = express.Router();
@@ -20,4 +21,4 @@ router.delete('/logout', userLogout);
 
 
 // export default router;
-exports.router = router;
+module.exports = router
