@@ -4,7 +4,7 @@
 const User = require('../models/userModel.js');
 // const bcrypt = require('bcrypt');
 
-const getUsers = async (req,res) => {
+exports.getUsers = async (req,res) => {
     try {
         const users = await User.find();
         res.json(users)
@@ -13,7 +13,7 @@ const getUsers = async (req,res) => {
     }
 }
 
-const getUserById = async (req,res) => {
+exports.getUserById = async (req,res) => {
     try {
         const user = await User.findById(req.params.id);
         res.json(user)
@@ -22,7 +22,7 @@ const getUserById = async (req,res) => {
     }
 }
 
-const saveUser = async (req,res) => {
+exports.saveUser = async (req,res) => {
     const user = new User(req.body);
     try {
         const insertUser = await user.save();
@@ -32,7 +32,7 @@ const saveUser = async (req,res) => {
     }
 }
 
-const updateUser = async (req,res) => {
+exports.updateUser = async (req,res) => {
     try {
         const updateUser = await User.updateOne({_id:req.params.id}, {$set: req.body});
         res.status(200).json(updateUser)
@@ -41,7 +41,7 @@ const updateUser = async (req,res) => {
     }
 }
 
-const deleteUser = async (req,res) => {
+exports.deleteUser = async (req,res) => {
     try {
         const deleteUser = await User.deleteOne({_id:req.params.id});
         res.status(200).json(deleteUser)
@@ -51,8 +51,8 @@ const deleteUser = async (req,res) => {
 }
 
 // export { getUsers, getUserById, saveUser, updateUser, deleteUser };
-exports.getUsers = getUsers
-exports.getUserById = getUserById
-exports.saveUser = saveUser
-exports.updateUser = updateUser
-exports.deleteUser = deleteUser
+// exports.getUsers = getUsers
+// exports.getUserById = getUserById
+// exports.saveUser = saveUser
+// exports.updateUser = updateUser
+// exports.deleteUser = deleteUser

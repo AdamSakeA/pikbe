@@ -32,4 +32,4 @@ router.post('/transaksi', upload.single('img'), saveTransaksi);
 router.patch('/transaksi/:id', updateTransaksi);
 router.delete('/transaksi/:id', deleteTransaksi);
 
-export default router;
+module.exports = router;

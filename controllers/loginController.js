@@ -5,7 +5,7 @@ const User = require('../models/userModel.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const userLogin = async (req,res) => {
+exports.userLogin = async (req,res) => {
     const { email, password } = req.body;
 
     const findUser = await User.findOne({
@@ -46,7 +46,7 @@ const userLogin = async (req,res) => {
     res.json({ accessToken, userId, name })
 }
 
-const getUserLoginById = async (req, res) => {
+exports.getUserLoginById = async (req, res) => {
     try {
         const userLogin = await User.findById(req.params._id);
         res.json(userLogin)
@@ -56,5 +56,5 @@ const getUserLoginById = async (req, res) => {
 }
 
 // export { userLogin, getUserLoginById };
-exports.userLogin = userLogin;
-exports.getUserLoginById = getUserLoginById;
+// exports.userLogin = userLogin;
+// exports.getUserLoginById = getUserLoginById;

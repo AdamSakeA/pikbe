@@ -8,7 +8,7 @@ const express = require('express');
 const { getUserLoginById, userLogin } = require('../controllers/loginController.js');
 const { refreshToken } = require('../controllers/refreshToken.js');
 const { userLogout } = require('../controllers/logoutController.js');
-const getUserById = require('../controllers/userController.j')
+const getUserById = require('../controllers/userController.js')
 
 
 const router = express.Router();

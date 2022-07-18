@@ -21,13 +21,13 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
-const userRoutes = require('./routes/userRoutes.js');
+// const userRoutes = require('./routes/userRoutes.js');
 const productRoutes = require('./routes/productRoutes.js');
-const transaksiRoutes = require('./routes/transaksiRoutes.js');
-const loginRoutes = require('./routes/loginRoutes.js');
-const registerRoutes = require('./routes/registerRoutes.js');
-const buyingRoutes = require('./routes/buyingRoutes.js');
-const adminRoutes = require('./routes/adminRoutes.js');
+// const transaksiRoutes = require('./routes/transaksiRoutes.js');
+// const loginRoutes = require('./routes/loginRoutes.js');
+// const registerRoutes = require('./routes/registerRoutes.js');
+// const buyingRoutes = require('./routes/buyingRoutes.js');
+// const adminRoutes = require('./routes/adminRoutes.js');
 
 
 dotenv.config();
@@ -66,15 +66,16 @@ db.once('open', () => console.log("database connected.."));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(cors({ credentials: true, origin: ["https://penelitianilmiah-fe.herokuapp.com/", "http://localhost:3000"]}));
+// app.use(cors({ credentials: true, origin: ["https://penelitianilmiah-fe.herokuapp.com/", "http://localhost:3000"]}));
 app.use(express.json());
-app.use(userRoutes);
-app.use(productRoutes);
-app.use(transaksiRoutes);
-app.use(registerRoutes);
-app.use(loginRoutes);
-app.use(buyingRoutes);
-app.use(adminRoutes);
+// app.use(userRoutes);
+console.log('productroutes: ', productRoutes);
+app.use('/product', productRoutes);
+// app.use(transaksiRoutes);
+// app.use(registerRoutes);
+// app.use(loginRoutes);
+// app.use(buyingRoutes);
+// app.use(adminRoutes);
 
 app.set('port', process.env.PORT || 5000)
 

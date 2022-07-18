@@ -7,9 +7,9 @@ const fs = require('fs')
 exports.getProduk = async (req,res) => {
     try {
         const products = await Produk.find();
-        res.json(products) 
+        return res.json(products) 
     } catch (error) {
-        res.status(600).json({message: error.message});
+        return res.status(600).json({message: error.message});
     }
 } 
 
