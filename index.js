@@ -25,7 +25,7 @@ const userRoutes = require('./routes/userRoutes.js');
 const productRoutes = require('./routes/productRoutes');
 const transaksiRoutes = require('./routes/transaksiRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
-const reqisterRoutes = require('./routes/registerRoutes.js');
+const registerRoutes = require('./routes/registerRoutes.js');
 const buyingRoutes = require('./routes/buyingRoutes.js');
 const adminRoutes = require('./routes/adminRoutes.js');
 

@@ -4,7 +4,7 @@
 const Produk = require('../models/productModel.js');
 const fs = require('fs')
 
-const getProduk = async (req,res) => {
+exports.getProduk = async (req,res) => {
     try {
         const products = await Produk.find();
         res.json(products) 
@@ -13,7 +13,7 @@ const getProduk = async (req,res) => {
     }
 } 
 
-const getProdukById = async (req, res) => {
+exports.getProdukById = async (req, res) => {
     try {
         const products = await Produk.findById(req.params.id);
         res.json(products)
@@ -22,7 +22,7 @@ const getProdukById = async (req, res) => {
     }
 }
 
-const getProdukByName = async (req,res) => {
+exports.getProdukByName = async (req,res) => {
     try {
         const products = await Produk.findOne(req.params.namaproduk);
         res.json(products);
@@ -31,7 +31,7 @@ const getProdukByName = async (req,res) => {
     }
 }
 
-const saveProduk = async (req,res) => {
+exports.saveProduk = async (req,res) => {
     try {
         const products = new Produk({
             namaproduk: req.body.namaproduk,
@@ -53,7 +53,7 @@ const saveProduk = async (req,res) => {
 
 }
 
-const updateProduk = async (req,res) => {
+exports.updateProduk = async (req,res) => {
     try {
         const updateProduct = await Produk.updateOne({_id:req.params.id} , {
             namaproduk: req.body.namaproduk,
@@ -71,7 +71,7 @@ const updateProduk = async (req,res) => {
     }
 }
 
-const deleteProduk = async (req,res) => {
+exports.deleteProduk = async (req,res) => {
     try {
         const deleteProduct= await Produk.deleteOne({_id:req.params.id});
         res.status(200).json(deleteProduct)
@@ -81,9 +81,9 @@ const deleteProduk = async (req,res) => {
 }
 
 // export {getProdukByName, getProduk, getProdukById, saveProduk, updateProduk, deleteProduk };
-exports.getProdukByName = getProdukByName
-exports.getProduk = getProduk
-exports.getProdukById = getProdukById
-exports.saveProduk = saveProduk
-exports.updateProduk = updateProduk
-exports.deleteProduk = deleteProduk
+// exports.getProdukByName = getProdukByName
+// exports.getProduk = getProduk
+// exports.getProdukById = getProdukById
+// exports.saveProduk = saveProduk
+// exports.updateProduk = updateProduk
+// exports.deleteProduk = deleteProduk

@@ -60,4 +60,6 @@ const refreshTokenAdmin = async(req,res) => {
     }
 }
 
-export { refreshToken, refreshTokenAdmin };
+// export { refreshToken, refreshTokenAdmin };
+exports.refreshToken = refreshToken
+exports.refreshTokenAdmin = refreshTokenAdmin
