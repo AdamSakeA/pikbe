@@ -22,4 +22,5 @@ router.delete('/admin/:id', deleteAdmin)
 
 
 // export default router;
-exports.router = router;
+// exports.router = router;
+module.exports = router

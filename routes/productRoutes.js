@@ -10,25 +10,25 @@ const product = require('../controllers/produkController.js')
 const verifyToken = require('../middleware/verifyToken.js')
 
 const router = express.Router();
-// router.use(express.static(path.join("assets")))
+router.use(express.static(path.join("assets")))
 
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, './assets/')
-//     },
-//     filename: function (req, file, cb) {
-//       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-//       cb(null, file.fieldname + '-' + uniqueSuffix)
-//     }
-//   })
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './assets/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+  })
 
-// const upload = multer({ storage: storage })
+const upload = multer({ storage: storage })
 
 router.get('/', product.getProduk);
 router.get('/:id', product.getProdukById);
 // router.get('/product/:id', getProdukByName);
-// router.post('/products', upload.single('img'), saveProduk);
-// router.patch('/products/:id', verifyToken, upload.single('img'), updateProduk);
-// router.delete('/products/:id', verifyToken, deleteProduk);
+router.post('/', upload.single('img'), product.saveProduk);
+router.patch('/:id', verifyToken, upload.single('img'), product.updateProduk);
+router.delete('/:id', verifyToken, product.deleteProduk);
 
 module.exports = router;
