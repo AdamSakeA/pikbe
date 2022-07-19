@@ -8,14 +8,14 @@ const express = require('express');
 // const { getUserLoginById, userLogin } = require('../controllers/loginController.js');
 const jwtToken = require('../controllers/refreshToken.js');
 const logout = require('../controllers/logoutController.js');
-const getUserById = require('../controllers/userController.js');
-const { module } = require('../models/userModel.js');
+const userId = require('../controllers/userController.js');
+// const { module } = require('../models/userModel.js');
 const login = require('../controllers/loginController.js')
 
 const router = express.Router();
 
 router.post('/login', login.userLogin);
-router.get('/:id', login.getUserById);
+router.get('/:id', userId.getUserById);
 router.get('/token', jwtToken.refreshToken); 
 router.delete('/logout', logout.userLogout);   
 
