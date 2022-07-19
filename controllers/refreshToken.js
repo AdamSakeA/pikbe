@@ -34,7 +34,7 @@ exports.refreshToken = async(req, res) => {
     }
 }
 
-const refreshTokenAdmin = async(req,res) => {
+exports.refreshTokenAdmin = async(req,res) => {
     try {
         const refreshToken = req.cookies.refreshToken;
         if(!refreshToken) return res.sendStatus(401);
