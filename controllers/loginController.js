@@ -2,6 +2,7 @@
 // import jwt from 'jsonwebtoken';
 // import bcrypt from 'bcrypt'
 const User = require('../models/userModel.js');
+const sessions = require('express-session')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 

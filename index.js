@@ -70,7 +70,6 @@ app.use(cors());
 app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/product', productRoutes);
-app.use('/product/:id', productRoutes);
 app.use('/transaksi', transaksiRoutes);
 app.use('/transaksi/:id', transaksiRoutes);
 app.use('/register', registerRoutes);

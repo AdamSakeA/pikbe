@@ -13,7 +13,7 @@ const userLogout = async (req,res) => {
     const userId = user._id;
     await User.updateOne({refresh_token: null}, {userId});
     res.clearCookie('refreshToken');
-    return res.sendStatus(200);
+    res.sendStatus(200);
 }
 
 // export { userLogout };
