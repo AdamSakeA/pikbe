@@ -7,18 +7,18 @@ const User = require('../models/userModel.js');
 exports.getUsers = async (req,res) => {
     try {
         const users = await User.find();
-        res.json(users)
+        return res.json(users)
     } catch (error) {
-        res.status(500).json({message: error.message});
+        return res.status(500).json({message: error.message});
     }
 }
 
 exports.getUserById = async (req,res) => {
     try {
         const user = await User.findById(req.params.id);
-        res.json(user)
+        return res.json(user)
     } catch (error) {
-        res.status(404).json({message: error.message});
+        return res.status(404).json({message: error.message});
     }
 }
 
@@ -26,27 +26,27 @@ exports.saveUser = async (req,res) => {
     const user = new User(req.body);
     try {
         const insertUser = await user.save();
-        res.status(201).json(insertUser)
+        return res.status(201).json(insertUser)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
 exports.updateUser = async (req,res) => {
     try {
         const updateUser = await User.updateOne({_id:req.params.id}, {$set: req.body});
-        res.status(200).json(updateUser)
+        return res.status(200).json(updateUser)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
 exports.deleteUser = async (req,res) => {
     try {
         const deleteUser = await User.deleteOne({_id:req.params.id});
-        res.status(200).json(deleteUser)
+        return res.status(200).json(deleteUser)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
