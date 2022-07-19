@@ -21,7 +21,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
-// const userRoutes = require('./routes/userRoutes.js');
+const userRoutes = require('./routes/userRoutes.js');
 const productRoutes = require('./routes/productRoutes.js');
 // const transaksiRoutes = require('./routes/transaksiRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
@@ -68,8 +68,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
-// app.use(userRoutes);
-console.log('productroutes: ', productRoutes);
+app.use('/users', userRoutes);
 app.use('/product', productRoutes);
 // app.use(transaksiRoutes);
 // app.use(registerRoutes);
