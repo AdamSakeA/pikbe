@@ -8,10 +8,10 @@ const jwtToken = require('../middleware/verifyToken.js');
 const router = express.Router();
 
 router.get('/', user.getUsers);
-// router.get('/users/:id', getUserById);
+router.get('/:id', user.getUserById);
 // router.post('/users', saveUser);
-// router.patch('/users/:id', updateUser);
-// router.delete('/users/:id', deleteUser);
+router.patch('/:id', user.updateUser);
+router.delete('/:id', user.deleteUser);
 
 // export default router;
 module.exports = router;

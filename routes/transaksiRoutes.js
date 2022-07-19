@@ -30,8 +30,8 @@ const upload = multer({ storage: storage })
 
 router.get('/', transaksi.getTransaksi);
 router.get('/:id', transaksi.getTransaksiById);
-// router.post('/transaksi', upload.single('img'), saveTransaksi);
-// router.patch('/transaksi/:id', updateTransaksi);
-// router.delete('/transaksi/:id', deleteTransaksi);
+router.post('/save', upload.single('img'), transaksi.saveTransaksi);
+router.patch('/update/:id', transaksi.updateTransaksi);
+router.delete('/delete/:id', transaksi.deleteTransaksi);
 
 module.exports = router;
