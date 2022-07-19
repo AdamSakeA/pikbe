@@ -7,8 +7,10 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi } = require('../controllers/transaksiController.js');
-const { verifyToken } = require('../middleware/verifyToken.js')
+const transaksi = require('../controllers/transaksiController.js');
+// const { verifyToken } = require('../middleware/verifyToken.js')
+const jwtToken = require('../controllers/refreshToken.js');
+
 
 const router = express.Router();
 router.use(express.static(path.join("assets")))
@@ -26,10 +28,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-router.get('/transaksi',verifyToken, getTransaksi);
-router.get('/transaksi/:id', getTransaksiById);
-router.post('/transaksi', upload.single('img'), saveTransaksi);
-router.patch('/transaksi/:id', updateTransaksi);
-router.delete('/transaksi/:id', deleteTransaksi);
+router.get('/', transaksi.getTransaksi);
+router.get('/:id', transaksi.getTransaksiById);
+// router.post('/transaksi', upload.single('img'), saveTransaksi);
+// router.patch('/transaksi/:id', updateTransaksi);
+// router.delete('/transaksi/:id', deleteTransaksi);
 
 module.exports = router;

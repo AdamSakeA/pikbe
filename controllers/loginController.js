@@ -6,44 +6,48 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 exports.userLogin = async (req,res) => {
-    const { email, password } = req.body;
-
-    const findUser = await User.findOne({
-        email : email,
-    })
-
-    if(!findUser) {
-        return res.status(400).json({
-            message: "Email not found"
-        })
-    }
-
-    const isPasswordValid = bcrypt.compareSync(password, findUser.password)
-
-    if(!isPasswordValid) {
-        return res.status(400).json({
-            message: "Wrong password"
-        })
-    }
+    try {
+        const {email, password} = req.body;
     
-    const userId = findUser._id; 
-    const name = findUser.namalengkap;
-    const accessToken = jwt.sign({userId, email, name}, process.env.ACCESS_TOKEN_SECRET 
-        ,{
-        expiresIn: '20s'
+        const findUser = await User.findOne({
+            email,
+        })
+    
+        if(!findUser) {
+            return res.status(400).json({
+                message: "Email not found"
+            })
         }
+    
+        const isPasswordValid = bcrypt.compareSync(password, findUser.password)
+    
+        if(!isPasswordValid) {
+            return res.status(400).json({
+                message: "Wrong password"
+            })
+        }
+        
+        const userId = findUser._id; 
+        const name = findUser.namalengkap;
+        const accessToken = jwt.sign({userId, email, name}, process.env.ACCESS_TOKEN_SECRET 
+            ,{
+            expiresIn: '20s'
+            }
+            )
+        const refreshToken = jwt.sign({userId, email, name}, process.env.REFRESH_TOKEN_SECRET 
+            ,{
+            expiresIn: '1d'
+             }
         )
-    const refreshToken = jwt.sign({userId, email, name}, process.env.REFRESH_TOKEN_SECRET 
-        ,{
-        expiresIn: '1d'
-         }
-    )
-    await User.updateOne({refresh_token: refreshToken}, userId);
-    res.cookie('refreshToken', refreshToken, {
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000,
-    });
-    res.json({ accessToken, userId, name })
+        User.updateOne({refresh_token: refreshToken}, userId);
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000,
+        });
+        res.json({ accessToken, userId, name })        
+    } catch (error) {
+        return res.status(404).json({message: error.message})
+    }
 }
 
 exports.getUserLoginById = async (req, res) => {

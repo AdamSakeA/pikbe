@@ -1,4 +1,3 @@
-// git 
 const mongoose = require('mongoose')
 
 const User = mongoose.Schema({
@@ -27,4 +26,4 @@ const User = mongoose.Schema({
     }    
 });
 
-exports.module = mongoose.model('data-pengguna', User);
+module.exports = mongoose.model('data-pengguna', User);

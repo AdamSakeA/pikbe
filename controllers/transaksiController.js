@@ -4,26 +4,26 @@
 const Transaksi = require('../models/transaksiModel.js');
 const fs = require('fs')
 
-const getTransaksi = async (req, res) => {
+exports.getTransaksi = async (req, res) => {
     try {
         const transaksi = await Transaksi.find();
-        res.json(transaksi)
+        return res.json(transaksi)
     } catch (error) {
-        res.status(600).json({message: error.message});
+        return res.status(600).json({message: error.message});
     }
 }
 
-const getTransaksiById = async (req, res) => {
+exports.getTransaksiById = async (req, res) => {
     try {
         const transaksi = await Transaksi.findById(req.params.id);
-        res.json(transaksi)
+        return res.json(transaksi)
     } catch (error) {
-        res.status(404).json({message: error.message});
+        return res.status(404).json({message: error.message});
     }
 }
 
 
-const saveTransaksi = async (req,res) => {
+exports.saveTransaksi = async (req,res) => {
     try {
         const transaksi = new Transaksi({
             namauser: req.body.namauser,
@@ -40,36 +40,36 @@ const saveTransaksi = async (req,res) => {
             }
         });
         transaksi.save()
-        res.status(200).json({ message: transaksi})
+        return res.status(200).json({ message: transaksi})
     } catch (error) {
-        res.status(401).json({
+        return res.status(401).json({
             message: error.message
         })
     }
 
 }
 
-const updateTransaksi = async (req, res) => {
+exports.updateTransaksi = async (req, res) => {
     try {
         const updateTransaksi = await Transaksi.updateOne({_id:req.params.id} , {$set: req.body})
-        res.status(200).json(updateTransaksi)
+        return res.status(200).json(updateTransaksi)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
-const deleteTransaksi = async (req,res) => {
+exports.deleteTransaksi = async (req,res) => {
     try {
         const deleteTransaksi = await Transaksi.deleteOne({_id:req.params.id});
-        res.status(200).json(deleteTransaksi);
+        return res.status(200).json(deleteTransaksi);
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
 // export { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi };
-exports.getTransaksi = getTransaksi
-exports.getTransaksiById = getTransaksiById
-exports.saveTransaksi = saveTransaksi
-exports.updateTransaksi = updateTransaksi
-exports.deleteTransaksi = deleteTransaksi
+// exports.getTransaksi = getTransaksi
+// exports.getTransaksiById = getTransaksiById
+// exports.saveTransaksi = saveTransaksi
+// exports.updateTransaksi = updateTransaksi
+// exports.deleteTransaksi = deleteTransaksi

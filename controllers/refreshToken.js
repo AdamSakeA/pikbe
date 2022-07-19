@@ -9,9 +9,8 @@ const jwt = require('jsonwebtoken');
 
 exports.refreshToken = async(req, res) => {
     try {
-        const refreshToken = req.cookies.refreshToken;
-        const byId = req.params.id;
-        if(!refreshToken) return res.sendStatus(401);
+        const refreshToken = req.cookies.refreshToken
+        if(refreshToken === "") return res.sendStatus(401);
 
         const findUser = await User.findOneAndUpdate({
             refresh_token: refreshToken,
@@ -19,7 +18,7 @@ exports.refreshToken = async(req, res) => {
 
         if(!findUser) return res.sendStatus({ refreshToken })
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-            if(err) return res.sendStatus(403);
+            // if(err) return res.sendStatus(403);
             const userId = findUser._id;
             const nama = findUser.namalengkap;
             const email = findUser.email;
@@ -27,17 +26,17 @@ exports.refreshToken = async(req, res) => {
             const accessToken = jwt.sign({ userId, nama, email}, process.env.ACCESS_TOKEN_SECRET, {
                 expiresIn: '15s'
             });
-            res.json({ accessToken, nama, email })
+            return res.json({ accessToken, nama, email })
         })
     } catch (error) {
-        console.log(error);
+       return console.log(error);
     }
 }
 
 exports.refreshTokenAdmin = async(req,res) => {
     try {
         const refreshToken = req.cookies.refreshToken;
-        if(!refreshToken) return res.sendStatus(401);
+        if(refreshToken === "") return res.sendStatus(401);
 
         const findAdminUser = await AdminUser.findOneAndUpdate({
             refresh_token: refreshToken,
@@ -45,7 +44,7 @@ exports.refreshTokenAdmin = async(req,res) => {
 
         if(!findAdminUser) return res.sendStatus({ refreshToken })
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-            if(err) return res.sendStatus(403);
+            // if(err) return res.sendStatus(403);
             const adminId = findAdminUser._id;
             const nama = findAdminUser.namaadmin;
             const email = findAdminUser.email;

@@ -23,7 +23,7 @@ const multer = require('multer');
 
 const userRoutes = require('./routes/userRoutes.js');
 const productRoutes = require('./routes/productRoutes.js');
-// const transaksiRoutes = require('./routes/transaksiRoutes.js');
+const transaksiRoutes = require('./routes/transaksiRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
 // const registerRoutes = require('./routes/registerRoutes.js');
 // const buyingRoutes = require('./routes/buyingRoutes.js');
@@ -70,9 +70,13 @@ app.use(cors());
 app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/product', productRoutes);
-// app.use(transaksiRoutes);
+app.use('/product/:id', productRoutes);
+app.use('/transaksi', transaksiRoutes);
+app.use('/transaksi/:id', transaksiRoutes);
 // app.use(registerRoutes);
 app.use('/login', loginRoutes);
+app.use('/token', loginRoutes);
+app.use('/logout', loginRoutes)
 // app.use(buyingRoutes);
 // app.use(adminRoutes);
 

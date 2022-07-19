@@ -7,7 +7,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const product = require('../controllers/produkController.js')
-const verifyToken = require('../middleware/verifyToken.js')
+const jwtToken = require('../middleware/verifyToken.js')
 
 const router = express.Router();
 router.use(express.static(path.join("assets")))
@@ -25,10 +25,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.get('/', product.getProduk);
-router.get('/:id', product.getProdukById);
+router.get('/:id', jwtToken.verifyToken, product.getProdukById);
 // // router.get('/product/:id', getProdukByName);
-// router.post('/', upload.single('img'), product.saveProduk);
-// router.patch('/:id', verifyToken, upload.single('img'), product.updateProduk);
+router.post('/', upload.single('img'), product.saveProduk);
+router.patch('/:id', jwtToken.verifyToken, upload.single('img'), product.updateProduk);
 // router.delete('/:id', verifyToken, product.deleteProduk);
 
 module.exports = router;

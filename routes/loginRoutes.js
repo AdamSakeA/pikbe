@@ -14,10 +14,10 @@ const login = require('../controllers/loginController.js')
 
 const router = express.Router();
 
-router.post('/login', login.userLogin);
+router.post('/', login.userLogin);
 router.get('/:id', userId.getUserById);
-router.get('/token', jwtToken.refreshToken); 
-router.delete('/logout', logout.userLogout);   
+router.get('/', jwtToken.refreshToken); 
+router.delete('/', logout.userLogout);   
 
 
 // export default router;
