@@ -7,7 +7,7 @@ const jwtToken = require('../middleware/verifyToken.js');
 
 const router = express.Router();
 
-router.get('/', user.getUsers);
+router.get('/', jwtToken.verifyToken, user.getUsers);
 router.get('/:id', user.getUserById);
 // router.post('/users', saveUser);
 router.patch('/:id', user.updateUser);

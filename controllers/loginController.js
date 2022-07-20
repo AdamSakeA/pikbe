@@ -1,6 +1,3 @@
-// import User from '../models/userModel.js'
-// import jwt from 'jsonwebtoken';
-// import bcrypt from 'bcrypt'
 const User = require('../models/userModel.js');
 const sessions = require('express-session')
 const jwt = require('jsonwebtoken');
@@ -59,7 +56,3 @@ exports.getUserLoginById = async (req, res) => {
         res.status(404).json({message: error.message});
     }
 }
-
-// export { userLogin, getUserLoginById };
-// exports.userLogin = userLogin;
-// exports.getUserLoginById = getUserLoginById;

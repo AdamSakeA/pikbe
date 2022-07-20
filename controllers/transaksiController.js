@@ -1,6 +1,3 @@
-// import Transaksi from '../models/transaksiModel.js';
-// import fs from 'fs'
-
 const Transaksi = require('../models/transaksiModel.js');
 const fs = require('fs')
 
@@ -66,10 +63,3 @@ exports.deleteTransaksi = async (req,res) => {
         return res.status(400).json({message: error.message});
     }
 }
-
-// export { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi };
-// exports.getTransaksi = getTransaksi
-// exports.getTransaksiById = getTransaksiById
-// exports.saveTransaksi = saveTransaksi
-// exports.updateTransaksi = updateTransaksi
-// exports.deleteTransaksi = deleteTransaksi

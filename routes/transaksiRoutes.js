@@ -1,15 +1,8 @@
-// import express from 'express';
-// import multer from 'multer';
-// import path from 'path';
-// import { getTransaksi, getTransaksiById, saveTransaksi, updateTransaksi, deleteTransaksi } from '../controllers/transaksiController.js';
-// import { verifyToken } from '../middleware/verifyToken.js';
-
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const transaksi = require('../controllers/transaksiController.js');
-// const { verifyToken } = require('../middleware/verifyToken.js')
-const jwtToken = require('../controllers/refreshToken.js');
+const jwtToken = require('../middleware/verifyToken.js');
 
 
 const router = express.Router();
@@ -28,7 +21,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-router.get('/', transaksi.getTransaksi);
+router.get('/', jwtToken.verifyToken, transaksi.getTransaksi);
 router.get('/:id', transaksi.getTransaksiById);
 router.post('/save', upload.single('img'), transaksi.saveTransaksi);
 router.patch('/update/:id', transaksi.updateTransaksi);

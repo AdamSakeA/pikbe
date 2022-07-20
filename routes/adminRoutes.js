@@ -1,26 +1,17 @@
-// import express from 'express';
-// import { refreshTokenAdmin } from '../controllers/refreshToken.js';
-// import { adminLogin, adminLogout, deleteAdmin, getAdmins, registerAdmin } from '../controllers/adminController.js';
-// import { verifyToken } from '../middleware/verifyToken.js';
-
 const express = require('express');
-const refreshTokenAdmin = require('../controllers/refreshToken.js');
-const { adminLogin, adminLogout, deleteAdmin, getAdmins, registerAdmin } = require('../controllers/adminController.js');
+const tokenAdmin = require('../controllers/refreshToken.js');
+const adminController = require('../controllers/adminController.js');
 const verifyToken = require('../middleware/verifyToken.js');
 
 
 
 const router = express.Router();
-router.post('/loginadmin', adminLogin);
-router.get('/tokenadmin', refreshTokenAdmin); 
-router.delete('/logoutadmin', adminLogout); 
+router.post('/', adminController.adminLogin);
+router.get('/', tokenAdmin.refreshTokenAdmin); 
+router.delete('/', adminController.adminLogout); 
 
-router.post('/adminregist', registerAdmin);
-router.get('/admins',verifyToken, getAdmins);
-router.delete('/admin/:id', deleteAdmin)
+router.post('/admins', adminController.registerAdmin);
+router.get('/admins', adminController.getAdmins);
+router.delete('/admins', adminController.deleteAdmin)
 
-
-
-// export default router;
-// exports.router = router;
 module.exports = router

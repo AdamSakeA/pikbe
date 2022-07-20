@@ -1,10 +1,7 @@
-// import User from "../models/userModel.js"
-// import bcrypt from 'bcrypt'
-
 const User = require('../models/userModel.js');
 const bcrypt = require('bcrypt');
 
-const updateUser = async (req,res) => {
+exports.updateUser = async (req,res) => {
 
     const { namalengkap, email, password, alamat, nomorhp } = req.body;
 
@@ -48,7 +45,7 @@ const updateUser = async (req,res) => {
     })
 }
 
-const userLogin = async (req,res) => {
+exports.userLogin = async (req,res) => {
     const { email, password } = req.body;
 
     const findUser = await User.findOne({
@@ -88,6 +85,3 @@ const userLogin = async (req,res) => {
     });
     res.json({ accessToken, userId, name })
 }
-
-exports.userLogin = userLogin
-exports.updateUser = updateUser

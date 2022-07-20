@@ -1,4 +1,3 @@
-// import mongoose from "mongoose";
 const mongoose = require('mongoose');
 
 const Produk = mongoose.Schema({
@@ -23,15 +22,6 @@ const Produk = mongoose.Schema({
         contentType: String
     }
     
-    // img: {
-    //     type: String,
-    //     data: Buffer,
-    //     required: true
-    // },
-
-    // url: {
-    //     type: String,
-    // }
 });
 
 module.exports = mongoose.model('data-produk', Produk);

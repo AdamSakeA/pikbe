@@ -1,7 +1,6 @@
-// import User from '../models/userModel.js'
-
 const User = require('../models/userModel.js');
-const userLogout = async (req,res) => {
+
+exports.userLogout = async (req,res) => {
     const refreshToken = req.cookies.refreshToken;
     if(!refreshToken) return res.sendStatus(204);
 
@@ -16,6 +15,4 @@ const userLogout = async (req,res) => {
     res.sendStatus(200);
 }
 
-// export { userLogout };
-exports.userLogout = userLogout
 

@@ -1,6 +1,3 @@
-// import Produk from '../models/productModel.js';
-// import fs from 'fs'
-
 const Produk = require('../models/productModel.js');
 const fs = require('fs')
 
@@ -16,9 +13,9 @@ exports.getProduk = async (req,res) => {
 exports.getProdukById = async (req, res) => {
     try {
         const products = await Produk.findById(req.params.id);
-        res.json(products)
+        return res.json(products)
     } catch (error) {
-        res.status(404).json({message: error.message});
+        return res.status(404).json({message: error.message});
     }
 }
 
@@ -44,9 +41,9 @@ exports.saveProduk = async (req,res) => {
             }
         });
         products.save()
-        res.status(200).json({ message: products})
+        return res.status(200).json({ message: products})
     } catch (error) {
-        res.status(401).json({
+        return res.status(401).json({
             message: error.message
         })
     }
@@ -65,25 +62,17 @@ exports.updateProduk = async (req,res) => {
                 contentType: "image/png"
             }
         })
-        res.status(200).json(updateProduct)
+        return res.status(200).json(updateProduct)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
 exports.deleteProduk = async (req,res) => {
     try {
         const deleteProduct= await Produk.deleteOne({_id:req.params.id});
-        res.status(200).json(deleteProduct)
+        return res.status(200).json(deleteProduct)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
-
-// export {getProdukByName, getProduk, getProdukById, saveProduk, updateProduk, deleteProduk };
-// exports.getProdukByName = getProdukByName
-// exports.getProduk = getProduk
-// exports.getProdukById = getProdukById
-// exports.saveProduk = saveProduk
-// exports.updateProduk = updateProduk
-// exports.deleteProduk = deleteProduk

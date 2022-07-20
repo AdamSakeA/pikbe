@@ -1,13 +1,9 @@
-// import AdminUser from '../models/adminModel.js'
-// import jwt from 'jsonwebtoken';
-// import bcrypt from 'bcrypt'
-
 const AdminUser = require('../models/adminModel.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 
-const adminLogin = async (req,res) => {
+exports.adminLogin = async (req,res) => {
     const { email, password } = req.body;
 
     const findAdmin = await AdminUser.findOne({
@@ -49,7 +45,7 @@ const adminLogin = async (req,res) => {
 }
 
 
-const adminLogout = async (req,res) => {
+exports.adminLogout = async (req,res) => {
     const refreshToken = req.cookies.refreshToken;
     if(!refreshToken) return res.sendStatus(204);
 
@@ -64,25 +60,25 @@ const adminLogout = async (req,res) => {
     return res.sendStatus(200);
 }
 
-const getAdmins = async (req,res) => {
+exports.getAdmins = async (req,res) => {
     try {
         const admins = await AdminUser.find();
-        res.json(admins)
+        return res.json(admins)
     } catch (error) {
-        res.status(500).json({message: error.message});
+        return res.status(500).json({message: error.message});
     }
 }
 
-const deleteAdmin = async (req,res) => {
+exports.deleteAdmin = async (req,res) => {
     try {
         const deleteAdmin = await AdminUser.deleteOne({_id:req.params.id});
-        res.status(200).json(deleteAdmin)
+        return res.status(200).json(deleteAdmin)
     } catch (error) {
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
     }
 }
 
-const registerAdmin = async (req,res) => {
+exports.registerAdmin = async (req,res) => {
     const { namaadmin, email, password, alamat, nomorhp } = req.body;
 
     const findAdmin = await AdminUser.findOne({
@@ -122,15 +118,7 @@ const registerAdmin = async (req,res) => {
         refresh_token: ""
     })
 
-    res.status(201).json({
+    return res.status(201).json({
         message: "Admin Registered!"
     })
 }
-
-
-// export { adminLogin, adminLogout, getAdmins, deleteAdmin, registerAdmin }
-exports.adminLogin = adminLogin
-exports.adminLogout = adminLogout
-exports.getAdmins = getAdmins
-exports.deleteAdmin = deleteAdmin
-exports.registerAdmin = registerAdmin

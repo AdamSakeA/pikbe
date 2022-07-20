@@ -28,7 +28,7 @@ router.get('/', product.getProduk);
 router.get('/:id', jwtToken.verifyToken, product.getProdukById);
 // // router.get('/product/:id', getProdukByName);
 router.post('/', upload.single('img'), product.saveProduk);
-router.patch('/:id', jwtToken.verifyToken, upload.single('img'), product.updateProduk);
-// router.delete('/:id', verifyToken, product.deleteProduk);
+router.patch('/:id', upload.single('img'), product.updateProduk);
+router.delete('/:id', product.deleteProduk);
 
 module.exports = router;

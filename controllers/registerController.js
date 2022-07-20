@@ -1,6 +1,3 @@
-// import User from '../models/userModel.js'
-// import bcrypt from 'bcrypt'
-
 const User = require('../models/userModel.js');
 const bcrypt = require('bcrypt');
 
@@ -48,5 +45,3 @@ exports.registerUser = async (req,res) => {
         message: "User Registered!"
     })
 }
-
-// export {registerUser};

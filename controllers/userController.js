@@ -1,6 +1,3 @@
-// import User from "../models/userModel.js"
-// import bcrypt from 'bcrypt'
-
 const User = require('../models/userModel.js');
 // const bcrypt = require('bcrypt');
 
