@@ -88,7 +88,7 @@ POST http://localhost:5000/loginadmin
 Content-Type: application/json
 
 {
-    "email" : "adamsake9@gmail.com",
+    "email" : "adamsake11@gmail.com",
     "password" : "adam123"
 }
 
@@ -98,7 +98,6 @@ GET http://localhost:5000/token
 ###
 GET http://localhost:5000/transaksi/62cf2314da1eb9928d5d815d
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmNlNTdhZmFhYjkwYjI5Mjk4OTVjMTgiLCJuYW1hIjoiQWRhbSBTYWtlIEFyZmFuc3lhaCIsImVtYWlsIjoiYWRhbXNha2U4QGdtYWlsLmNvbSIsImlhdCI6MTY1Nzc4ODIzNCwiZXhwIjoxNjU3Nzg4MjQ5fQ.ANiCH2opkagPrgCYKLKHPbMbvtF57SiuNmnIzB7HARM
-
 
 
 
